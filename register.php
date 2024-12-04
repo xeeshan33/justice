@@ -1,25 +1,3 @@
-<?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = $_POST['role']; // 'lawyer' or 'client'
-
-    // Pseudo-code for registration
-    // $success = registerUser($name, $email, $password, $role);
-
-    if ($success) {
-        // After successful registration, redirect to login page
-        header('Location: login.php');
-        exit;
-    } else {
-        $error = "Registration failed!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,14 +28,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </nav>
-
+    
+    <?php 
+        include 'config.php';
+        if (isset($_POST['submit'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $role = $_POST['role']; // 'lawyer' or 'client'
+        
+            // Pseudo-code for registration
+            $insert = "INSERT INTO `register` (`name`, `email`, `password`, `role`) VALUES ( '$name', '$email', '$password', '$role')";
+            $success = mysqli_query($conn,$insert);
+        
+            if($success){
+                header('Location: Login.php');
+            }
+        }
+    ?>
     <!-- Register Section -->
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <h2 class="text-center mb-4">Register</h2>
-                    <form method="POST" action="">
+                    <form method="post" action="" >
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
                             <input type="text" name="name" class="form-control" id="name" required>
@@ -77,12 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <option value="lawyer">Lawyer</option>
                             </select>
                         </div>
-                        <?php if (isset($error)): ?>
-                            <div class="alert alert-danger">
-                                <?= $error ?>
-                            </div>
-                        <?php endif; ?>
-                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        <button type="submit" class="btn btn-primary w-100" name="submit" id="submit">Register</button>
                     </form>
                 </div>
             </div>
