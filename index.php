@@ -11,7 +11,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Best Law Agency</h4>
                             <h3 class="display-2 text-capitalize text-white mb-4">Our fighting Is for your justice</h3>
-                            <a class="btn btn-primary py-3 px-5 mt-2" href="Apoinment.php">Get An Appointment</a>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="bid.php">bidding your Problems</a>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Results You Deserve</h4>
                             <h3 class="display-2 text-capitalize text-white mb-4">We prepared to oppose for you</h3>
-                            <a class="btn btn-primary py-3 px-5 mt-2" href="#">Call Us Now</a>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="#">Choice a Best Lawyers</a>
                         </div>
                     </div>
                 </div>

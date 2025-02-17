@@ -2,10 +2,10 @@
 session_start();
 
 // Only allow access if the user is a lawyer
-if (!isset($_SESSION['role']) || $_SESSION['role']['role'] != 'lawyer') {
-    header('Location: ../login.php');
-    exit;
-}
+// if (!isset($_SESSION['role']) || $_SESSION['role']['role'] != 'lawyer') {
+//     header('Location: ../login.php');
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
