@@ -1,42 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justice Platform</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Justice Platform</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
+    <?php 
+        include './Common/header.php'
+    ?>
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 pb-5">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Best Law Agency</h4>
+                            <h3 class="display-2 text-capitalize text-white mb-4">Our fighting Is for your justice</h3>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="bid.php">bidding your Problems</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Results You Deserve</h4>
+                            <h3 class="display-2 text-capitalize text-white mb-4">We prepared to oppose for you</h3>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="#">Choice a Best Lawyers</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-lg btn-secondary btn-lg-square">
+                    <span class="carousel-control-prev-icon"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-lg btn-secondary btn-lg-square">
+                    <span class="carousel-control-next-icon"></span>
+                </div>
+            </a>
         </div>
-    </nav>
+    </div>
+    <!-- Carousel End -->
 
     <!-- Hero Section -->
     <section class="bg-light text-center py-5">
@@ -73,12 +75,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 Justice Platform. All rights reserved.</p>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php 
+        include './Common/footer.php'
+    ?>

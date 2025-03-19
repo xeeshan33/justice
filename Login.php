@@ -1,24 +1,29 @@
 <?php
-session_start();
+    include 'config.php';
+    session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
+    
 
     // Pseudo-code for authentication
-    // $user = authenticateUser($email, $password);
+    $query = "SELECT * FROM `register` WHERE email = '$email' AND password = '$password' AND role = '$role'";
+    $res = mysqli_query($conn, $query);
     
-    // Example user data for lawyer and client
-    // $user = ['role' => 'client']; // For client
-    // $user = ['role' => 'lawyer']; // For lawyer
-
-    if ($user) {
-        $_SESSION['user'] = $user;
-
-        if ($user['role'] == 'client') {
+    if (mysqli_num_rows($res) > 0) {
+        // Fetch the result row to get the user's role
+        $row = mysqli_fetch_assoc($res);
+        $_SESSION['user_id'] = $row['ID'];
+        // Store the role in the session
+        $_SESSION['role'] = $row['role'];
+    
+        // Redirect based on the role
+        if ($row['role'] == 'Client') {
             header('Location: index.php');
-        } elseif ($user['role'] == 'lawyer') {
-            header('Location: lawyer-dashboard.php');
+        } elseif ($row['role'] == 'Lawyer') {
+            header('Location: ./Lawyers/lawyers-dashbord.php');
         }
         exit;
     } else {
@@ -70,12 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="password" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" id="password" required>
                         </div>
-                        <?php if (isset($error)): ?>
-                            <div class="alert alert-danger">
-                                <?= $error ?>
-                            </div>
-                        <?php endif; ?>
-                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Register as:</label>
+                            <select name="role" class="form-select" id="role" required>
+                                <option value="client">Client</option>
+                                <option value="lawyer">Lawyer</option>
+                            </select>
+                        </div>
+                        <button type="submit" name="submit" id="submit" class="btn btn-primary w-100">Login</button>
                     </form>
                 </div>
             </div>

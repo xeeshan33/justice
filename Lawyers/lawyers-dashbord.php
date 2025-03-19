@@ -2,10 +2,10 @@
 session_start();
 
 // Only allow access if the user is a lawyer
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'lawyer') {
-    header('Location: ../login.php');
-    exit;
-}
+// if (!isset($_SESSION['role']) || $_SESSION['role']['role'] != 'lawyer') {
+//     header('Location: ../login.php');
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +29,10 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'lawyer') {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="lawyers-dashbord.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="../logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'lawyer') {
                         <div class="card-body">
                             <h5 class="card-title">Profile</h5>
                             <p class="card-text">View and edit your profile details.</p>
-                            <a href="#" class="btn btn-primary">Go to Profile</a>
+                            <a href="Lawyer_info.php" class="btn btn-primary">Go to Profile</a>
                         </div>
                     </div>
                 </div>
